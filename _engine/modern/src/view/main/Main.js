@@ -1,61 +1,84 @@
-/**
- * This class is the main view for the application. It is specified in app.js as the
- * "mainView" property. That setting causes an instance of this class to be created and
- * added to the Viewport container.
- *
- * TODO - Replace the content of this view to suit the needs of your application.
- */
 Ext.define('HDB.view.main.Main', {
-    extend: 'Ext.tab.Panel',
+    extend: 'Ext.navigation.View',
     xtype: 'app-main',
 
     requires: [
-        'Ext.MessageBox',
-
         'HDB.view.main.MainController',
         'HDB.view.main.MainModel',
-        'HDB.view.main.List'
+
+        'Ext.Menu',
+        'Ext.TitleBar',
+
+        'HDB.view.start.ClassSelection',
+        'HDB.view.deckpicker.DeckPicker'
     ],
 
     controller: 'main',
     viewModel: 'main',
 
-    defaults: {
-        tab: {
-            iconAlign: 'top'
-        },
-        styleHtmlContent: true
+    shadow: true,
+    padding: 20,
+    scrollable: true,
+
+    navigationBar: false,
+    items: [{
+        xtype: 'titlebar',
+        docked: 'top',
+        title: 'Hearthstone Deck Builder', 
+        items: [{
+            iconCls: 'x-fa fa-navicon',
+            align: 'left',
+            handler: function(){
+                Ext.Viewport.toggleMenu('left');
+            }
+        }]
+    },{
+        title: 'Class Selection',
+        xtype: 'app-classselection'
+    }],
+
+    initialize: function() {
+        Ext.Viewport.setMenu(this.getMenuCfg('left'), {
+            side: 'left',
+            reveal: true
+        });
     },
 
-    tabBarPosition: 'bottom',
+    doDestroy: function() {
+        Ext.Viewport.removeMenu('left');
+        this.callParent();
+    },
 
-    items: [
-        {
-            title: 'Home',
-            iconCls: 'x-fa fa-home',
-            layout: 'fit',
-            // The following grid shares a store with the classic version's grid as well!
+    getMenuCfg: function(side) {
+        return {
             items: [{
-                xtype: 'mainlist'
+                text: 'Deck Builder',
+                iconCls: 'x-fa fa-gear',
+                scope: this,
+                handler: function(btn) {
+                    var v = Ext.first('app-main');
+                    v.pop();
+                    v.push({
+                        title: 'Class Selection',
+                        xtype: 'app-classselection'
+                    });
+                    Ext.Viewport.hideMenu(side);
+                }   
+            }, {
+                text: 'Deck Builder 2',
+                iconCls: 'x-fa fa-pencil',
+                handler: function(btn) {
+                    var v = Ext.first('app-main');
+                    v.pop();
+                    v.push({
+                        title: 'Choose Cards',
+                        xtype: 'app-deckpicker'
+                    });
+                    Ext.Viewport.hideMenu(side);
+                }   
             }]
-        },{
-            title: 'Users',
-            iconCls: 'x-fa fa-user',
-            bind: {
-                html: '{loremIpsum}'
-            }
-        },{
-            title: 'Groups',
-            iconCls: 'x-fa fa-users',
-            bind: {
-                html: '{loremIpsum}'
-            }
-        },{
-            title: 'Settings',
-            iconCls: 'x-fa fa-cog',
-            bind: {
-                html: '{loremIpsum}'
-            }
-        }
-    ]
+        };
+    }
 });
+
+
