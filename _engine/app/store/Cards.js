@@ -68,5 +68,4 @@ Ext.define('HDB.store.Cards', {
     }
 
 
-}, function(s){}
-);
+});

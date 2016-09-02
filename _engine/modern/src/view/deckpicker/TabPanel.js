@@ -8,6 +8,9 @@ Ext.define('HDB.view.deckpicker.TabPanel', {
         'HDB.view.deckpicker.CardView'
     ],
 
+    statics: {
+        CLASS_SELECTION: "TODO",
+    },
     config: {
        smallscreen: false
     },
@@ -31,12 +34,14 @@ Ext.define('HDB.view.deckpicker.TabPanel', {
                         itemId: 'className',
                         flex: 1,
                         centered: true,
-                        html: "Mage"
+                        bind: {
+                            html: "{classSelection}"
+                        }
                     }
                 ]
             },
             {
-                title: 'Mage',
+                title: HDB.view.deckpicker.TabPanel.CLASS_SELECTION,
                 xtype: 'app-cardview'
             }, {
                 title: 'Regular',
@@ -74,7 +79,9 @@ Ext.define('HDB.view.deckpicker.TabPanel', {
                         itemId: 'className',
                         flex: 1,
                         centered: true,
-                        html: "Mage"
+                        bind: {
+                            html: "{classSelection}"
+                        }
                     }
                 ]
             },
@@ -94,7 +101,7 @@ Ext.define('HDB.view.deckpicker.TabPanel', {
                 }]
             },
             {
-                title: 'Mage',
+                title: HDB.view.deckpicker.TabPanel.CLASS_SELECTION,
                 xtype: 'app-cardview'
             }, {
                 title: 'Regular',

@@ -6,8 +6,7 @@ Ext.define('HDB.view.start.ClassSelection', {
         'HDB.store.CharacterClasses'
     ],
 
-    controller: 'main',
-    viewModel: 'main',
+    controller: 'classselection',
 
     shadow: true,
     padding: 20,
@@ -22,8 +21,6 @@ Ext.define('HDB.view.start.ClassSelection', {
     selectedItemCls: 'selected',
 
     listeners: {
-        select: function(view, record) {
-            console.log(record);
-        }
+        select: 'makeSelection'
     }
 });
