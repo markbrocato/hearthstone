@@ -1,9 +1,9 @@
 Ext.define('HDB.view.start.ClassSelection', {
-    extend: 'Ext.Container',
+    extend: 'Ext.dataview.DataView',
     xtype: 'app-classselection',
 
     requires: [
-        'Ext.TitleBar'
+        'HDB.store.CharacterClasses'
     ],
 
     controller: 'main',
@@ -13,6 +13,17 @@ Ext.define('HDB.view.start.ClassSelection', {
     padding: 20,
     scrollable: true,
 
-    html: "CLASS SELECTION"
+    store: 'characterclasses',
+    itemTpl: '{name} <img src="{images.block}" />',
 
+    cls: 'characters',
+    itemCls: 'character',
+    overItemCls: 'over',
+    selectedItemCls: 'selected',
+
+    listeners: {
+        select: function(view, record) {
+            console.log(record);
+        }
+    }
 });

@@ -76,6 +76,20 @@ Ext.define('HDB.view.main.Main', {
                     });
                     Ext.Viewport.hideMenu(side);
                 }   
+            }, {
+                text: 'Card Overview',
+                iconCls: 'x-fa fa-pencil',
+                handler: function(btn) {
+                    var v = Ext.first('app-main');
+                    v.pop();
+                    v.push({
+                        title: 'Card Overview',
+                        xtype: 'list',
+                        store: 'cards',
+                        itemTpl: '{cost} - {name} ({playerClass})'
+                    });
+                    Ext.Viewport.hideMenu(side);
+                }                
             }]
         };
     }

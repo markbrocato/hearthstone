@@ -8,8 +8,15 @@ Ext.define('HDB.Application', {
     
     name: 'HDB',
 
+    requires: [
+        'HDB.utils.AppSettings',
+        'HDB.utils.CardManager'
+    ],
+
     stores: [
-        // TODO: add global / shared stores here
+        'HDB.store.Cards',
+        'HDB.store.CharacterClasses',
+        'HDB.store.MyDecks'
     ],
     
     launch: function () {

@@ -22,6 +22,7 @@
      */
     "classpath": [
         "app",
+        "data",
         "${toolkit.name}/src"
     ],
 
@@ -41,9 +42,6 @@
      * The Sencha Framework for this application: "ext" or "touch".
      */
     "framework": "ext",
-    
-    
-    
     
     /**
      * The list of required packages (with optional versions; default is "latest").

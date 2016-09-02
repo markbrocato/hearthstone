@@ -1,0 +1,75 @@
+{
+  "patch": "3.0.0.9786",
+  "classes": [
+    "Druid",
+    "Hunter",
+    "Mage",
+    "Paladin",
+    "Priest",
+    "Rogue",
+    "Shaman",
+    "Warlock",
+    "Warrior",
+    "Dream"
+  ],
+  "sets": [
+    "Basic",
+    "Classic",
+    "Credits",
+    "Naxxramas",
+    "Debug",
+    "Goblins vs Gnomes",
+    "Missions",
+    "Promotion",
+    "Reward",
+    "System",
+    "Blackrock Mountain",
+    "Hero Skins",
+    "Tavern Brawl",
+    "The Grand Tournament"
+  ],
+  "types": [
+    "Hero",
+    "Minion",
+    "Spell",
+    "Enchantment",
+    "Weapon",
+    "Hero Power"
+  ],
+  "factions": [
+    "Horde",
+    "Alliance",
+    "Neutral"
+  ],
+  "qualities": [
+    "Free",
+    "Common",
+    "Rare",
+    "Epic",
+    "Legendary"
+  ],
+  "races": [
+    "Demon",
+    "Dragon",
+    "Mech",
+    "Murloc",
+    "Beast",
+    "Pirate",
+    "Totem"
+  ],
+  "locales": [
+    "deDE",
+    "enGB",
+    "enUS",
+    "esES",
+    "esMX",
+    "frFR",
+    "itIT",
+    "koKR",
+    "plPL",
+    "ptBR",
+    "ruRU",
+    "zhCN",
+    "zhTW"
+  ]
+}

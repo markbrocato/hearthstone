@@ -115,7 +115,6 @@ Ext.define('HDB.view.deckpicker.TabPanel', {
         me.callParent(arguments);
     },
     updateSmallscreen: function(smallscreen){
-        console.log(smallscreen);
         var me = this;
         var sidebar = Ext.first('#sidebar');
         var topbar = Ext.first('#cardtoolbar');
