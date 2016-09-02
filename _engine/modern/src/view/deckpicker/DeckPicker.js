@@ -7,7 +7,6 @@ Ext.define('HDB.view.deckpicker.DeckPicker', {
     ],
     requires: [
         'Ext.tab.Panel',
-        'HDB.view.details.Details',
         'HDB.view.deckpicker.TabPanel',
         'HDB.utils.Responsive'
     ],
@@ -27,7 +26,6 @@ Ext.define('HDB.view.deckpicker.DeckPicker', {
         xtype: 'app-deckpickertabs',
         padding: 20,
         flex: 4,
-
 
         //I have to wrap it in a container, cause it doesn't look like the responsive mixin works on the class
         plugins: 'responsive',
