@@ -29,6 +29,5 @@ Ext.define('HDB.view.start.ClassSelectionController', {
             title: 'Choose Cards',
             xtype: 'app-deckpicker'
         });
-        Ext.Viewport.hideMenu(side);
     }
 });
