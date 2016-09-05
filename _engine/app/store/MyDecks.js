@@ -1,19 +1,42 @@
 Ext.define('HDB.store.MyDecks', {
-    extend: 'Ext.data.Store',
+    extend: 'Ext.data.TreeStore',
 
     requires: [
         'Ext.data.proxy.LocalStorage'
     ],
 
-    model: 'HDB.model.MyDeck',
-
+    alias: 'store.mydecks',
     storeId: 'mydecks',
-    autoLoad: true,
 
-    //sorters
-    //filters
+    model: 'HDB.model.MyDeck',
+    rootVisible: true,
+    defaultRootProperty: 'items',
 
-    proxy: {
-        type: 'localstorage'
-    }
+    //TODO What's wrong with this?'
+    root: {
+        "text": "Decks",
+        "items": [{
+            "text": "Mage-Deck1",
+            "items": [{
+                "text": "Card1",
+                "leaf": true
+            }, {
+                "text": "Card2",
+                "leaf": true           
+            }, {
+                "text": "Card3",
+                "leaf": true                  
+            }]
+        }]
+    },
+
+
+    /*groupers: [{
+        'direction': 'ASC',
+        'property': 'cost'
+    }],*/
+
+    //proxy: {
+    //    type: 'localstorage'
+   // }
 });

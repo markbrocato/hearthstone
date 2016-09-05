@@ -1,5 +1,8 @@
 Ext.define('HDB.model.MyDeck', {
     extend: 'Ext.data.Model',
 
-    fields: []
+    fields: [{
+        name: 'text',
+        type: 'string'
+    }]
 });
