@@ -9,6 +9,36 @@ Ext.define('HDB.view.main.MainController', {
         });
     },
 
+
+    //deck builder interface
+    toggleInterface: function(container, button, pressed){
+        var me = this;
+        if(pressed){
+            var pressedItem = button.getItemId(),
+                tabp = me.lookupReference('deckpickertabpanel');
+
+            tabp.removeAll(); //remove all tabs, not the docked items
+            if(pressedItem === "dataviewbtn"){
+                tabp.add([{
+                    title: HDB.view.deckpicker.TabPanel.CLASS_SELECTION,
+                    xtype: 'app-cardview'
+                }, {
+                    title: 'Regular',
+                    xtype: 'app-cardview' 
+                }]);
+            } else {
+                tabp.add([{
+                    title: HDB.view.deckpicker.TabPanel.CLASS_SELECTION,
+                    xtype: 'app-cardlistview'
+                }, {
+                    title: 'Regular',
+                    xtype: 'app-cardlistview' 
+                }]);
+            }
+        }
+    },
+
+
     //main menu
     doDestroy: function() {
         Ext.Viewport.removeMenu('left');

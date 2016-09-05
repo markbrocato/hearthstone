@@ -9,8 +9,6 @@ Ext.define('HDB.view.deckpicker.DeckPickerController', {
         HDB.view.deckpicker.TabPanel.CLASS_SELECTION = title;
     },
 
-
-
     chooseCard: function(view, selection){
         var character = selection.getData();
         console.log(character);

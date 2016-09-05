@@ -15,6 +15,8 @@ Ext.define('HDB.view.deckpicker.TabPanel', {
        smallscreen: false
     },
 
+    reference: 'deckpickertabpanel',
+
     padding: 20,
     tabBarPosition: 'bottom',
 
@@ -61,19 +63,25 @@ Ext.define('HDB.view.deckpicker.TabPanel', {
                 docked: 'top',
                 items: [
                     {
-                        xtype: 'button',
-                        iconCls: 'x-fa fa-th',
-                        handler: function(){
-                            console.log("TODO SHOW DATAVIEW");
-                        }
+                        xtype: 'segmentedbutton',
+                        listeners: {
+                            toggle: 'toggleInterface'
+                        },
+                        items: [
+                            {
+                                xtype: 'button',
+                                pressed: true,
+                                itemId: 'dataviewbtn',
+                                iconCls: 'x-fa fa-th'
+                            },
+                            {
+                                xtype: 'button',
+                                itemId: 'listbtn',
+                                iconCls: 'x-fa fa-th-list'
+                            }
+                        ]
                     },
-                    {
-                        xtype: 'button',
-                        iconCls: 'x-fa fa-th-list',
-                        handler: function(){
-                            console.log("TODO SHOW LIST");
-                        }
-                    },
+
                     {
                         xtype: 'component',
                         itemId: 'className',
