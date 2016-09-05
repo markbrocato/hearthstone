@@ -1,0 +1,16 @@
+{
+        "text": "Decks",
+        "items": [{
+            "text": "Mage-Deck1",
+            "items": [{
+                "text": "Card1",
+                "leaf": true
+            }, {
+                "text": "Card2",
+                "leaf": true           
+            }, {
+                "text": "Card3",
+                "leaf": true                  
+            }]
+        }]
+}

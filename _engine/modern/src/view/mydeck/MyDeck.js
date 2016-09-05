@@ -1,5 +1,5 @@
 Ext.define('HDB.view.mydeck.MyDeck', {
-    extend: 'Ext.dataview.NestedList',
+    extend: 'Ext.Container',
     xtype: 'app-mydeck',
 
     requires: [
@@ -16,20 +16,49 @@ Ext.define('HDB.view.mydeck.MyDeck', {
     viewModel: {
         type: 'mydeck' 
     },
-    bind: {
-        store: '{mydecks}'
-    },
+
 
     displayField: 'text',
+    useSimpleItems: false,
     title: 'My Decks',
-    items: [{
+    items: [
+        {
+            xtype: 'treelist',
+            bind: {
+                store: '{mydecks}',
+            },
+            displayField: 'name',
+        },
+        {
         xtype: 'toolbar',
         docked: 'bottom',
         items: [{
             xtype: 'button',
             iconCls: 'x-fa fa-plus',
             handler: function(btn){
-                console.log("TODO")
+
+                //var records = btn.up('treelist').getSelection();
+                //console.log(records);
+                var s = Ext.getStore('mydecks');
+                var deck = s.first().childNodes[0];
+                var root = s.first();
+                if (deck) {
+                    deck.appendChild({
+                        text: 'Card',
+                        leaf: true
+                    });
+                }
+
+                if(root){
+                    root.appendChild({
+                        text: 'Mage-Deck2',
+                        items: [{
+                            text: "Card 211",
+                            leaf: true
+                        }]
+                    });              
+                }
+
             },
             text: 'New'
         }]

@@ -1,8 +1,9 @@
 Ext.define('HDB.model.MyDeck', {
-    extend: 'Ext.data.Model',
+    extend: 'Ext.data.TreeModel',
 
     fields: [{
         name: 'text',
-        type: 'string'
+        type: 'string',
+        mapping: 'name'
     }]
 });

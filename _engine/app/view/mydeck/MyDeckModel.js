@@ -10,7 +10,20 @@ Ext.define('HDB.view.mydeck.MyDeckModel', {
     stores: {
         'mydecks': {
             type: 'mydecks',
-            storeId: 'MyDecks'
+                root: {
+                expanded: true,
+                name: 'My Decks',
+                children: [{
+                    name: 'Mage-Deck1',
+                    children: [{
+                        name: 'Card 1',
+                        leaf: true
+                    },{
+                        name: 'CARD 2',
+                        leaf: true           
+                    }]
+                }]
+            }
         }
     }
 
