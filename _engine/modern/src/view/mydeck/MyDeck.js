@@ -1,5 +1,5 @@
 Ext.define('HDB.view.mydeck.MyDeck', {
-    extend: 'Ext.Container',
+    extend: 'Ext.NestedList',
     xtype: 'app-mydeck',
 
     requires: [
@@ -17,19 +17,7 @@ Ext.define('HDB.view.mydeck.MyDeck', {
         type: 'mydeck' 
     },
 
-
-    displayField: 'text',
-    useSimpleItems: false,
-    title: 'My Decks',
-    items: [
-        {
-            xtype: 'treelist',
-            bind: {
-                store: '{mydecks}',
-            },
-            displayField: 'name',
-        },
-        {
+    items:[{
         xtype: 'toolbar',
         docked: 'bottom',
         items: [{
@@ -43,26 +31,83 @@ Ext.define('HDB.view.mydeck.MyDeck', {
                 var deck = s.first().childNodes[0];
                 var root = s.first();
                 if (deck) {
-                    deck.appendChild({
-                        text: 'Card',
+                    deck.appendChild({ //this one doesn't work'
+                        text: 'Card1',
                         leaf: true
                     });
                 }
 
                 if(root){
-                    root.appendChild({
-                        text: 'Mage-Deck2',
-                        items: [{
-                            text: "Card 211",
-                            leaf: true
-                        }]
+                    root.parentNode.appendChild({
+                        text: 'Folder', //works
+                        leaf: true
                     });              
                 }
 
             },
             text: 'New'
         }]
-    }]
-
-//fa-floppy-o 
+    }],
+    title: 'My Decks',
+    displayField: 'text',
+    bind: {
+        store: '{mydecks}', //something odd with this store
+    }
+    /*store: { //it works with this store
+        type: 'tree',
+        model: 'HDB.model.MyDeck',
+        defaultRootProperty: 'items',
+        root: {
+            text: 'Groceries',
+            items: [{
+                text: 'Drinks',
+                items: [{
+                    text: 'Water',
+                    items: [{
+                        text: 'Sparkling',
+                        leaf: true
+                    }, {
+                        text: 'Still',
+                        leaf: true
+                    }]
+                }, {
+                    text: 'Coffee',
+                    leaf: true
+                }, {
+                    text: 'Espresso',
+                    leaf: true
+                }, {
+                    text: 'Redbull',
+                    leaf: true
+                }, {
+                    text: 'Coke',
+                    leaf: true
+                }, {
+                    text: 'Diet Coke',
+                    leaf: true
+                }]
+            }, {
+                text: 'Fruit',
+                items: [{
+                    text: 'Bananas',
+                    leaf: true
+                }, {
+                    text: 'Lemon',
+                    leaf: true
+                }]
+            }, {
+                text: 'Snacks',
+                items: [{
+                    text: 'Nuts',
+                    leaf: true
+                }, {
+                    text: 'Pretzels',
+                    leaf: true
+                }, {
+                    text: 'Wasabi Peas',
+                    leaf: true
+                }]
+            }]
+        }
+    }*/
 });

@@ -4,22 +4,23 @@ Ext.define('HDB.view.mydeck.MyDeckModel', {
     alias: 'viewmodel.mydeck',
 
     requires: [
-        'HDB.store.MyDecks'
+        'HDB.store.MyDecks',
+        'HDB.model.MyDeck'
     ],
 
     stores: {
         'mydecks': {
             type: 'mydecks',
-                root: {
+            root: {
                 expanded: true,
-                name: 'My Decks',
+                text: 'My Decks',
                 children: [{
-                    name: 'Mage-Deck1',
+                    text: 'Mage-Deck1',
                     children: [{
-                        name: 'Card 1',
+                        text: 'Card 1',
                         leaf: true
                     },{
-                        name: 'CARD 2',
+                        text: 'CARD 2',
                         leaf: true           
                     }]
                 }]

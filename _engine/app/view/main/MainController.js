@@ -83,6 +83,19 @@ Ext.define('HDB.view.main.MainController', {
                     });
                     Ext.Viewport.hideMenu(side);
                 }                
+            }, {
+                text: 'My Decks',
+                handler: function(btn){
+                    var v = Ext.first('app-main');
+                    v.pop();
+                    v.push({
+                        xtype: 'app-mydeck',
+                    });
+                    Ext.Viewport.hideMenu(side);
+
+
+
+                }
             }]
         };
     }
