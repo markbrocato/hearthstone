@@ -22,6 +22,11 @@ Ext.define('HDB.view.mydeck.MyDeck', {
             iconCls: 'x-fa fa-plus',
             handler: 'addNewDeck',
             text: 'New'
+        }, {
+            xtype: 'button',
+            iconCls: 'x-fa fa-remove',
+            handler: 'removeDeck',
+            text: 'Remove Deck'           
         }]
     }],
     title: 'My Decks',
