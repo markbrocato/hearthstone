@@ -25,6 +25,8 @@ Ext.define('HDB.view.deckpicker.DeckPickerController', {
                 character.text = character.name;
 
                 deck.appendChild(character);
+
+                console.log("TODO: Now save also cards offline");
             }
         }
 
