@@ -6,7 +6,21 @@ Ext.define('HDB.view.main.MainModel', {
 
     alias: 'viewmodel.main',
 
+    requires: [
+        'HDB.store.MyDecks',
+        'HDB.store.MyDecksOffline'
+    ],
+
     data: {
-        classSelection: 'Mage'
+        classSelection: 'Mage',
+        activeListNode: null
+
+        //,selectedCard: null
+    },
+
+    stores: {
+        'mydecks': {
+            type: 'mydecks'
+        }
     }
 });

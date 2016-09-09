@@ -3,6 +3,9 @@ Ext.define('HDB.view.deckpicker.CardListView', {
     xtype: 'app-cardlistview',
 
     controller: 'deckpicker',
+    viewModel: {
+        type: 'main'
+    },
 
     shadow: true,
     scrollable: true,

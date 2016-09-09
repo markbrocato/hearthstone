@@ -16,7 +16,7 @@ Ext.define('HDB.Application', {
     stores: [
         'HDB.store.Cards',
         'HDB.store.CharacterClasses',
-        'HDB.store.MyDecks'
+        'HDB.store.MyDecksOffline'
     ],
     
     launch: function () {
