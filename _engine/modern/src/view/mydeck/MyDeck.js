@@ -35,6 +35,6 @@ Ext.define('HDB.view.mydeck.MyDeck', {
         'listchange': 'changeListNodes'
     },
     bind: {
-        store: '{mydecks}', //something odd with this store
+        store: '{mydecks}' //something odd with this store
     }
 });

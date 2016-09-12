@@ -307,7 +307,7 @@
         "output": {
             "appCache": {
                 "enable": true,
-                "path": "cache.appcache"
+                "path": "offline.appcache"
             }
         },
         "loader": {
@@ -459,13 +459,26 @@
          * List of items in the CACHE MANIFEST section
          */
         "cache": [
-            "index.html"
+            "index.html",
+            "/",
+            "../data/allCards.json",
+            "../data/classes.json",
+            "favicon.ico",
+            "modern/app.js",
+            "modern.json",
+            "modern.jsonp",
+            "modern.jsp",
+            "modern/resources/HDB.css",
+            "modern/resources/css-vars.js",
+            "resources/icon-large.png",
+            "resources/icon-mega.png",
+            "resources/icon-medium.png"
         ],
         /**
          * List of items in the NETWORK section
          */
         "network": [
-            "*"
+            "*" // //these files will be loaded over the network instead
         ],
         /**
          * List of items in the FALLBACK section

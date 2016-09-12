@@ -6,9 +6,15 @@ Ext.define('HDB.utils.AppSettings', {
     IS_MOCK: true,
     //</debug>
 
+    CARD_SERVICE : 'data/allCards.json',
+    //CARD_SERVICE : 'data/cards',
+    //<debug>
     CARD_SERVICE : '../data/allCards.json',
-    //CARD_SERVICE : '../data/cards',
-    CLASS_SERVICE: '../data/classes.json'
+    //</debug>
+    CLASS_SERVICE: 'data/classes.json',
+    //<debug>
+    CLASS_SERVICE: '../data/classes.json',
+    //</debug>
 
 }, function(){
     if(location.search.match(/\btestmode\b/)){

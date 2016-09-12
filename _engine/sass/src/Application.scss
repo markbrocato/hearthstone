@@ -2,11 +2,7 @@
     display: inline-block;
     overflow: hidden;
     width: 25%;
-
-    &.x-selected,
-    &.x-hovered {
-        background: #f2f2f2;
-    }
+    float: left;
 
     .cost {
         display: none;
@@ -17,4 +13,8 @@
         text-align: center;
         display: block;
     }
+}
+.x-dataview-item.x-selected,
+.x-dataview-item.x-hovered {
+    background: #f2f2f2;
 }

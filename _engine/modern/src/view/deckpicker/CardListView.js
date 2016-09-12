@@ -13,7 +13,7 @@ Ext.define('HDB.view.deckpicker.CardListView', {
     itemTpl: '<span class="cost">{cost}</span> <span class="title">{name}</span>',
 
     listeners: {
-        select: 'chooseCard'
+        itemtap: 'chooseCard'
     }
 
 });

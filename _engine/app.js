@@ -1,3 +1,26 @@
+var enableSW = true;
+//<debug>
+    //no server workers on localhost
+    enableSW = false;
+//</debug>
+
+if(enableSW && 'serviceWorker' in navigator) {
+    //a service worker should only register once.
+    if(!navigator.serviceWorker.controller){
+        navigator.serviceWorker.register('service-worker.js', {
+            scope: '.'
+        }).then(function(registration) {
+            //console.log('Service Worker Registered');
+        });
+    }
+} else if(enableSW && 'applicationCache' in window) {
+    //let’s enable the old fashioned AppCache for iOS
+    var iframe = document.createElement('iframe');
+    iframe.style.display = 'none';
+    iframe.src = 'load-appcache.html';
+    document.body.appendChild(iframe);
+}
+
 /*
  * This file is generated and updated by Sencha Cmd. You can edit this file as
  * needed for your application, but these edits will have to be merged by

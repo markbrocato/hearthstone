@@ -8,7 +8,8 @@ Ext.define('HDB.view.deckpicker.DeckPicker', {
     requires: [
         'Ext.tab.Panel',
         'HDB.view.deckpicker.TabPanel',
-        'HDB.utils.Responsive'
+        'HDB.utils.Responsive',
+        'Ext.plugin.Responsive'
     ],
 
 

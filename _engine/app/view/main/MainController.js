@@ -47,8 +47,8 @@ Ext.define('HDB.view.main.MainController', {
     getMenuCfg: function(side) {
         return {
             items: [{
-                text: 'Deck Builder',
-                iconCls: 'x-fa fa-gear',
+                text: 'Class Selection',
+                iconCls: 'x-fa fa-angle-right',
                 scope: this,
                 handler: function(btn) {
                     var v = Ext.first('app-main');
@@ -60,8 +60,8 @@ Ext.define('HDB.view.main.MainController', {
                     Ext.Viewport.hideMenu(side);
                 }   
             }, {
-                text: 'Deck Builder 2',
-                iconCls: 'x-fa fa-pencil',
+                text: 'Deck Builder',
+                iconCls: 'x-fa fa-angle-right',
                 handler: function(btn) {
                     var v = Ext.first('app-main');
                     v.pop();
@@ -72,19 +72,8 @@ Ext.define('HDB.view.main.MainController', {
                     Ext.Viewport.hideMenu(side);
                 }   
             }, {
-                text: 'Card Overview',
-                iconCls: 'x-fa fa-pencil',
-                handler: function(btn) {
-                    var v = Ext.first('app-main');
-                    v.pop();
-                    v.push({
-                        title: 'Card Overview',
-                        xtype: 'app-cardlistview'
-                    });
-                    Ext.Viewport.hideMenu(side);
-                }                
-            }, {
                 text: 'My Decks',
+                iconCls: 'x-fa fa-angle-right',
                 handler: function(btn){
                     var v = Ext.first('app-main');
                     v.pop();
@@ -92,11 +81,26 @@ Ext.define('HDB.view.main.MainController', {
                         xtype: 'app-mydeck',
                     });
                     Ext.Viewport.hideMenu(side);
-
-
-
+                }
+            }, {
+                text: 'All my Cards',
+                iconCls: 'x-fa fa-angle-right',
+                handler: function(btn){
+                    var v = Ext.first('app-main');
+                    v.pop();
+                    v.push({
+                        xtype: 'list',
+                        store: 'mycardsoffline',
+                        onItemDisclosure: function(){
+                            console.log("here");
+                        },
+                        itemTpl: "{cost} - {playClass} - {text}"
+                    });
+                    Ext.Viewport.hideMenu(side);
                 }
             }]
+
+
         };
     }
 

@@ -39,4 +39,29 @@
             <target name="-after-build"/>
     -->
 
+    <target name="-after-build">
+        <copy todir="${build.dir}" overwrite="true">
+            <fileset dir="${basedir}">
+                <include name="manifest.json" />
+                <include name="load-appcache.html" />
+                <include name="service-worker.js" />
+            </fileset>
+        </copy>
+        <copy todir="${build.dir}" overwrite="true">
+            <fileset dir="${workspace.dir}">
+                <include name="data/allCards.json" />
+                <include name="data/classes.json" />
+            </fileset>
+        </copy>
+         <!-- I will thrash what we don't need!-->
+        <delete dir="${build.dir}/modern/resources/ext"/>
+        <delete dir="${build.dir}/modern/resources/ext-watermark"/>
+        <delete dir="${build.dir}/modern/resources/images"/>
+        <delete dir="${build.dir}/modern/resources/ext-senchacandy-lib"/>
+        <delete dir="${build.dir}/modern/resources/senchacandy-lib"/>
+        <delete dir="${build.dir}/modern/resources/font-pictos"/>
+        <delete dir="${build.dir}/modern/resources/font-awesome"/>
+        <delete dir="${build.dir}/modern/resources/font-ext"/>
+
+    </target>
 </project>

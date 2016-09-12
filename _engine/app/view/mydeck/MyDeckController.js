@@ -47,11 +47,21 @@ Ext.define('HDB.view.mydeck.MyDeckController', {
         }
     },
 
+    removeCard: function(btn){
+        console.log("TODO");
+    },
+
     changeListNodes: function(nestedlist, item){
         if(item && item.getStore()){
-            var activeNode = item.getStore().getNode();
-            var vm = Ext.first('app-main').getViewModel();
+            var activeNode = item.getStore().getNode(),
+                vm = Ext.first('app-main').getViewModel(),
+                nodeName = activeNode.getData().text;
+
             vm.set('activeListNode', activeNode);
+
+            if(nodeName !== "Root"){
+                
+            }
         }
     }
 
