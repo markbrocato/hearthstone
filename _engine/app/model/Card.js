@@ -27,10 +27,19 @@ Ext.define('HDB.model.Card', {
     {
         "name": "health",
         "type": "int"    
-    },     
+    },
     {
         "name": "img",
         "type": "string"    
+    },        
+    {
+        "name": "image",
+        "type": "string",
+        "calculate": function(data) {
+            if(data.img){
+                return data.img.substring(5);
+            }
+        }   
     }],
 
     proxy: {

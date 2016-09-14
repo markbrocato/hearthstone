@@ -22,6 +22,7 @@ Ext.define('HDB.store.CharacterClasses', {
     proxy: {
         type: 'ajax',
         url: HDB.utils.AppSettings.CLASS_SERVICE,
+        noCache: false,
         reader: {
             type: 'json',
             rootProperty: 'classes'

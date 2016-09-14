@@ -10,7 +10,8 @@ Ext.define('HDB.Application', {
 
     requires: [
         'HDB.utils.AppSettings',
-        'HDB.utils.CardManager'
+        'HDB.utils.CardManager',
+        'HDB.utils.PouchDbManager'
     ],
 
     stores: [
@@ -22,6 +23,7 @@ Ext.define('HDB.Application', {
     
     launch: function () {
         // TODO - Launch the application
+        HDB.utils.PouchDbManager.init();
     },
 
     onAppUpdate: function () {

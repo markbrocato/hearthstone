@@ -1,2 +1,4 @@
 build
 !ext/build
+node_modules
+_old

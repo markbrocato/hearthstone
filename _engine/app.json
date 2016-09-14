@@ -215,21 +215,30 @@
         {
             "path": "app.js",
             "bundle": true
+        },
+        {
+            "path": "../data/pouchdb-6.0.4.min.js",
+            "bundle": true
         }
+        
+        //, {
+        //    "path": "service-worker.js",
+        //    "bundle": false
+        //}
     ],
 
     
     /**
      * Settings specific to classic toolkit builds.
      */
-    "classic": {
-        "js": [
+ //"classic": {
+   //     "js": [
             // Remove this entry to individually load sources from the framework.
-            {
-                "path": "${framework.dir}/build/ext-all-rtl-debug.js"
-            }
-        ]
-    },
+     //       {
+       //         "path": "${framework.dir}/build/ext-all-rtl-debug.js"
+         //   }
+        //]
+   // },
 
     /**
      * Settings specific to modern toolkit builds.
@@ -292,12 +301,12 @@
          //   - other: a string (such as the build.timestamp shown here) to allow
          //     requests to be cached for this build.
          //
-         "cache": false,
+         "cache": true
 
          // When "cache" is not true, this value is the request parameter used
          // to control caching.
          //
-         "cacheParam": "_dc"
+         //"cacheParam": "_dc"
      },
 
     /**
@@ -311,7 +320,7 @@
             }
         },
         "loader": {
-            "cache": "${build.timestamp}"
+           "cache": true
         },
         "cache": {
             "enable": true
@@ -421,6 +430,9 @@
         "appCache": {
             "enable": false
         },
+        "loader": {
+            "cache": true
+        },
         "resources": {
             "path": "${build.id}/resources",
             "shared": "resources"
@@ -445,7 +457,7 @@
     */
     
     "cache": {
-        "enable": false,
+        "enable": true,
         "deltas": "${build.id}/deltas"
     },
     
@@ -460,19 +472,25 @@
          */
         "cache": [
             "index.html",
-            "/",
-            "../data/allCards.json",
-            "../data/classes.json",
-            "favicon.ico",
+            "data/allCards.json",
+            "data/classes.json",
+            "favicon.png",
             "modern/app.js",
             "modern.json",
             "modern.jsonp",
-            "modern.jsp",
-            "modern/resources/HDB.css",
+            "modern/resources/HDB-all.css",
             "modern/resources/css-vars.js",
             "resources/icon-large.png",
-            "resources/icon-mega.png",
-            "resources/icon-medium.png"
+            "resources/icon-normal.png",
+            "resources/icon-medium.png",
+            "resources/icon-small.png",
+            "resources/splash.png",
+            "resources/font-awesome/fonts/FontAwesome.otf",
+            "resources/font-awesome/fonts/fontawesome-webfont.eot",
+            "resources/font-awesome/fonts/fontawesome-webfont.svg",
+            "resources/font-awesome/fonts/fontawesome-webfont.ttf",
+            "resources/font-awesome/fonts/fontawesome-webfont.woff", 
+            "resources/font-awesome/fonts/fontawesome-webfont.woff2"
         ],
         /**
          * List of items in the NETWORK section
@@ -553,7 +571,14 @@
             "toolkit": "modern",
             
             "theme": "theme-material",
-            
+
+            "loader": {
+                "cache": true
+            },
+            "cache": {
+                "enable": true
+            },
+
             "sass": {
                 "generated": {
                     "var": "modern/sass/save.scss",

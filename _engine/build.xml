@@ -45,6 +45,7 @@
                 <include name="manifest.json" />
                 <include name="load-appcache.html" />
                 <include name="service-worker.js" />
+                <include name="favicon.png" />
             </fileset>
         </copy>
         <copy todir="${build.dir}" overwrite="true">

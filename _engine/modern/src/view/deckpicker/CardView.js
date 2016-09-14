@@ -11,7 +11,7 @@ Ext.define('HDB.view.deckpicker.CardView', {
     scrollable: true,
     cls: 'cards',
     store: 'cards',
-    itemTpl: '<tpl if="img && cost"><div class="card"><img src="{img}" width="180px" /><span class="cost">{cost}</span> <span class="title">{name}</span></div></tpl>',
+    itemTpl: '<tpl if="image && cost"><div class="card"><img src="{image}" width="180px" /><span class="cost">{cost}</span> <span class="title">{name}</span></div></tpl>',
     listeners: {
         select: 'chooseCard'
     }

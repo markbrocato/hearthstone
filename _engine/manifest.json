@@ -4,13 +4,13 @@
 	"short_name": "HDB",
 	"description": "Heartstone deckbuilder",
 	"icons": [{
-		"src": "resources/icon-medium.png",
+		"src": "resources/icon-small.png",
 		"sizes": "96x96"
 	}, {
-		"src": "resources/icon-large.png",
+		"src": "resources/icon-normal.png",
 		"sizes": "192x192"
 	}, {
-		"src": "resources/icon-mega.png",
+		"src": "resources/icon-medium.png",
 		"sizes": "256x256"
 	}],
 	"splash_screens": [{
@@ -21,5 +21,5 @@
 	"background_color": "#000",
 	"display": "standalone",
 	"orientation": "portrait",
-	"start_url": ""
+	"start_url": "/HDB/"
 }

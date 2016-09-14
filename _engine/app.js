@@ -1,16 +1,19 @@
 var enableSW = true;
 //<debug>
     //no server workers on localhost
-    enableSW = false;
+    enableSW = true;
 //</debug>
 
 if(enableSW && 'serviceWorker' in navigator) {
     //a service worker should only register once.
+    console.log("sw allowed");
     if(!navigator.serviceWorker.controller){
-        navigator.serviceWorker.register('service-worker.js', {
-            scope: '.'
-        }).then(function(registration) {
-            //console.log('Service Worker Registered');
+        navigator.serviceWorker.register('service-worker.js').then(function(registration) {
+            // Registration was successful
+            console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        }).catch(function(err) {
+            // registration failed :(
+            console.log('ServiceWorker registration failed: ', err);
         });
     }
 } else if(enableSW && 'applicationCache' in window) {

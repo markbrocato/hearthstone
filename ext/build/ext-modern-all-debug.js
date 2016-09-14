@@ -91523,6 +91523,7 @@ Ext.define('Ext.dataview.NestedList', {
     },
     
     getList: function(node) {
+ 
         var me = this,
             treeStore = new Ext.data.NodeStore({
                 recursive: false,

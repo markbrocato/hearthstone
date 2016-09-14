@@ -41,6 +41,7 @@ Ext.define('HDB.store.Cards', {
         var me = this;
         Ext.Ajax.request({
             url: url,
+            disableCaching: false,
             success: function(response){
                 if(response){
                     var data  =Ext.JSON.decode(response.responseText),
@@ -65,6 +66,14 @@ Ext.define('HDB.store.Cards', {
         }
 
         return tData;
+    },
+
+    export: function(){
+        var store = Ext.getStore('cards');
+        store.clearFilter();
+        var json = Ext.encode(Ext.pluck(store.data.items, 'data'));
+
+        console.log(json);
     }
 
 

@@ -308,7 +308,9 @@ Ext.Microloader = Ext.Microloader || (function () {
             applyCacheBuster: function(url) {
                 var tstamp = new Date().getTime(),
                     sep = url.indexOf('?') === -1 ? '?' : '&';
-                url = url + sep + "_dc=" + tstamp;
+                //url = url + sep + "_dc=" + tstamp; //TODO LEE
+                url = url + sep;
+                
                 return url;
             },
 
