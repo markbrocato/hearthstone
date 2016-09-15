@@ -8,42 +8,27 @@ Ext.define('HDB.view.deckpicker.DeckPickerController', {
     },
 
     chooseCard: function(view, selection){
-        console.log(selection);
         var vm = this.getViewModel(), //mainmodel
            character = selection.getData(),
-           activeDeck = vm.get('activeListNode');
+           cardsoffline = Ext.getStore('mycardsoffline');
 
         vm.set('selectedCard', character);
 
-        if(activeDeck){
-            var vm = Ext.first('app-main').getViewModel(),
-                cardsoffline = Ext.getStore('mycardsoffline'),
-                store = vm.getStore('mydecks'),
-                deck = store.getNodeById(activeDeck.id);
+        var c = Ext.create('HDB.model.Card', {
+            "name": character.name,
+            "cost": character.cost,
+            "health": character.health,
+            "attack": character.attack,
+            "img": character.img,
+            "desc": character.text,
+            "playClass": character.playerClass
+        });
+        cardsoffline.add(c);
 
-            if (deck && activeDeck.id !== "root") {
-                character.leaf = true;
-                character.desc = character.text;
-                character.text = character.name;
-
-                deck.appendChild(character);
-
-                var c = Ext.create('HDB.model.Card', {
-                    "text": character.text,
-                    "cost": character.cost,
-                    "health": character.health,
-                    "attack": character.attack,
-                    "img": character.img,
-                    "desc": character.desc,
-                    "playerClass": character.playerClass
-                });
-                console.log(c);
-                cardsoffline.add(c);
-
-                console.log("TODO: Now save also cards offline. Bug when you wrongly select one.");
-                console.log("TODO: MyDecks needs to load the cards. this needs to be filted on playerClass");
-            }
-        }
+        console.log("TODO: IT SHOULD BE POSSIBLE TO HAVE MULTIPLE DECKS OR A CHAR. Need to do something with deck id");
+        console.log("CREATE D3 widget");
+        console.log("MULTIPLE SAME CARDS TO ONE DECK");
+            
 
     }
 });

@@ -5,7 +5,6 @@ Ext.define('HDB.model.MyDeck', {
          fields: [{
              name: 'text',
              type: 'string'
-             //, mapping: 'name'
          }]
      }
 });

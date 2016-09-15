@@ -14,6 +14,9 @@ Ext.define('HDB.store.MyDecksOffline', {
     fields: [{
         name: "text",
         type: "string"
+    }, {
+        name: "playClass",
+        type: "string"
     }],
 
     proxy: {

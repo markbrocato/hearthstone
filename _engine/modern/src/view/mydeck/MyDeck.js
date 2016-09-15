@@ -1,5 +1,5 @@
 Ext.define('HDB.view.mydeck.MyDeck', {
-    extend: 'Ext.NestedList',
+    extend: 'Ext.List',
     xtype: 'app-mydeck',
 
     requires: [
@@ -31,10 +31,11 @@ Ext.define('HDB.view.mydeck.MyDeck', {
     }],
     title: 'My Decks',
     displayField: 'text',
+    itemCls: 'mydeck',
+    onItemDisclosure: true,
     listeners: {
-        'listchange': 'changeListNodes'
+        'disclose': 'removeDeck',
+        'itemtap': 'chooseDeck'
     },
-    bind: {
-        store: '{mydecks}' //something odd with this store
-    }
+    store: 'mydecksoffline'
 });

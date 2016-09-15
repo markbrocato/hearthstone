@@ -2,7 +2,6 @@ Ext.define('HDB.view.start.ClassSelectionController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.classselection',
 
-
     makeSelection: function(view, selection){
         var character;
         if(typeof selection == "string"){
@@ -26,6 +25,13 @@ Ext.define('HDB.view.start.ClassSelectionController', {
                     }    
                     return false;
                 }
+            }]);
+
+            var storeO = Ext.getStore('mydecksoffline');
+            storeO.clearFilter();
+            storeO.addFilter([{
+                "property" : "playClass",
+                "value": character
             }]);
 
             v.push({

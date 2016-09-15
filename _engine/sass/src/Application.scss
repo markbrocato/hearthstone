@@ -14,7 +14,15 @@
         display: block;
     }
 }
+
 .x-dataview-item.x-selected,
 .x-dataview-item.x-hovered {
     background: #f2f2f2;
+}
+
+.mydeck .x-icon-el:before,
+.mycard .x-icon-el:before {
+    content: '\f00d';
+    font-size: 1.16667rem;
+    font-family: 'FontAwesome';
 }

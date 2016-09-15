@@ -104,8 +104,38 @@ Ext.define('HDB.view.deckpicker.TabPanel', {
                     xtype: 'app-stats',
                     height: 200
                 }, {
-                    xtype: 'app-mydeck',
-                    flex: 1
+                    xtype: 'container',
+                    itemId: 'slider',
+                    layout: 'card',
+                    flex: 1,  
+                    items: [{
+                        xtype: 'toolbar',
+                        docked: 'top',
+                        items: [{
+                            xtype: 'button',
+                            text: 'Back',
+                            itemId: 'listbackbtn',
+                            hidden: true,
+                            handler: function(btn){
+                                var backbtn = Ext.first('#listbackbtn');
+                                var parent = btn.up('#slider');
+                                backbtn.hide();
+                                
+                                //the animation doesnt work
+                                parent.getLayout().setAnimation({
+                                    type: 'slide',
+                                    direction: 'left'
+                                });
+                                parent.setActiveItem(0);
+                            }
+                        }]
+                    },
+                    {
+                        xtype: 'app-mydeck'
+                    }, {
+                        xtype: 'mycardsoffline'
+                    }]
+  
                 }]
             },
             {

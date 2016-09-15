@@ -1,5 +1,10 @@
 Ext.define('HDB.view.main.MainController', {
     extend: 'Ext.app.ViewController',
+
+    requires: [
+        'HDB.view.mydeck.MyCards'
+    ],
+
     alias: 'controller.main',
 
     init: function() {
@@ -89,12 +94,7 @@ Ext.define('HDB.view.main.MainController', {
                     var v = Ext.first('app-main');
                     v.pop();
                     v.push({
-                        xtype: 'list',
-                        store: 'mycardsoffline',
-                        onItemDisclosure: function(){
-                            console.log("here");
-                        },
-                        itemTpl: "{cost} - {playClass} - {text}"
+                        xtype: 'mycardsoffline'
                     });
                     Ext.Viewport.hideMenu(side);
                 }
@@ -102,6 +102,10 @@ Ext.define('HDB.view.main.MainController', {
 
 
         };
+    },
+
+    removeCard: function(view, rec){
+        Ext.getStore('mycardsoffline').remove(rec);
     }
 
 
