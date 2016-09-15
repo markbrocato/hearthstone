@@ -52,6 +52,8 @@
             <fileset dir="${workspace.dir}">
                 <include name="data/allCards.json" />
                 <include name="data/classes.json" />
+                <include name="data/pouchdb-6.0.4.min.js" />
+                <include name="data/images/*" />
             </fileset>
         </copy>
          <!-- I will thrash what we don't need!-->

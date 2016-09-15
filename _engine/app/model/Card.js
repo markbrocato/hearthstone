@@ -37,7 +37,10 @@ Ext.define('HDB.model.Card', {
         "type": "string",
         "calculate": function(data) {
             if(data.img){
-                return data.img.substring(5);
+                var d = data.img;
+                var i = d.lastIndexOf("/");
+                
+                return "data/images" + d.substring(i);
             }
         }   
     }],

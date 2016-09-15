@@ -11,7 +11,7 @@ Ext.define('HDB.Application', {
     requires: [
         'HDB.utils.AppSettings',
         'HDB.utils.CardManager',
-        'HDB.utils.PouchDbManager'
+       // 'HDB.utils.PouchDbManager'
     ],
 
     stores: [
@@ -21,9 +21,13 @@ Ext.define('HDB.Application', {
         'HDB.store.CardsOffline'
     ],
     
+    controllers: [
+        'HDB.controller.Global'
+    ],
+
     launch: function () {
         // TODO - Launch the application
-        HDB.utils.PouchDbManager.init();
+        //HDB.utils.PouchDbManager.init();
     },
 
     onAppUpdate: function () {

@@ -2,7 +2,6 @@ var version = "1";
 var CACHE_NAME = "hdb";
 var REQUIRED_FILES = [
     "index.html",
-    "/HDB/",
     "data/allCards.json",
     "data/classes.json",
     "favicon.png",
@@ -32,6 +31,9 @@ console.log("sw");
 self.addEventListener('install', function(e){
   e.waitUntil(
     caches.open(CACHE_NAME).then(function(cache){
+
+
+        
         return cache.addAll(REQUIRED_FILES);
     }).then(function(){
         self.skipWaiting();
@@ -102,6 +104,25 @@ self.addEventListener('fetch', function(event){
 //The activate event fires when a previous version of
 //a service worker has been replaced. The updated service
 //worker takes control of the scope.
-self.addEventListener('activate',  function(event) {
+/*self.addEventListener('activate',  function(event) {
   event.waitUntil(self.clients.claim());
+});*/
+
+self.addEventListener('activate', function(event) {
+
+  var cacheWhitelist = ['pages-cache-v1', 'blog-posts-cache-v1'];
+
+  event.waitUntil(
+    caches.keys().then(function(cacheNames) {
+      return Promise.all(
+        cacheNames.map(function(cacheName) {
+          if (cacheWhitelist.indexOf(cacheName) === -1) {
+            return caches.delete(cacheName);
+          }
+        })
+      );
+    })
+  );
 });
+
+

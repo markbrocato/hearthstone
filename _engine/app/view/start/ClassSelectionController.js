@@ -2,32 +2,41 @@ Ext.define('HDB.view.start.ClassSelectionController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.classselection',
 
+
     makeSelection: function(view, selection){
-        var character = selection.getData().name;
-        console.log(character);
+        var character;
+        if(typeof selection == "string"){
+            character = selection;
 
-        this.getViewModel().set('classSelection', character);
-        HDB.view.deckpicker.TabPanel.CLASS_SELECTION = character;
+            var v = Ext.first('app-main');
+            v.pop();
 
-        var store = Ext.getStore('cards');
-        store.clearFilter();
-        store.addFilter([{
-            "property" : "playerClass",
-            "value": character
-        },{
-            filterFn: function(record){
-                if(record.get("cost") >= 0){
-                    return true;
-                }    
-                return false;
-            }
-        }]);
+            this.getViewModel().set('classSelection', character);
+            HDB.view.deckpicker.TabPanel.CLASS_SELECTION = character;
 
-        var v = Ext.first('app-main');
-        v.pop();
-        v.push({
-            title: 'Choose Cards',
-            xtype: 'app-deckpicker'
-        });
+            var store = Ext.getStore('cards');
+            store.clearFilter();
+            store.addFilter([{
+                "property" : "playerClass",
+                "value": character
+            },{
+                filterFn: function(record){
+                    if(record.get("cost") >= 0){
+                        return true;
+                    }    
+                    return false;
+                }
+            }]);
+
+            v.push({
+                title: 'Choose Cards',
+                xtype: 'app-deckpicker',
+                store: Ext.getStore('cards')
+            });
+
+        } else {
+            character = selection.getData().name;
+            view.fireEvent('routechange', character);
+        }
     }
 });

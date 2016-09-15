@@ -215,11 +215,12 @@
         {
             "path": "app.js",
             "bundle": true
-        },
-        {
-            "path": "../data/pouchdb-6.0.4.min.js",
-            "bundle": true
         }
+        //,{
+        //    "path": "../data/pouchdb-6.0.4.min.js",
+        //    "bundle": true,
+       //     "includeInBundle": false
+       // }
         
         //, {
         //    "path": "service-worker.js",
